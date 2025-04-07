@@ -1,0 +1,44 @@
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <h1 class="mt-5">Détail du lieu 🛰️ </h1>
+      </div>
+    </div>
+    <div class="row d-flex justify-content-center">
+      <div class="col-7 bg-blue my-5">
+
+        <form>
+          <div class="mb-3">
+            <label for="rue" class="form-label">Nom de la rue :</label>
+            <input type="text" class="form-control" id="rueForm">
+          </div>
+
+          <div class="mb-3">
+            <label for="codePostal" class="form-label">Code Postal</label>
+            <input type="text" class="form-control" id="codePostalForm">
+          </div>
+
+          <div class="mb-3">
+            <label for="ville" class="form-label">Ville</label>
+            <select class="form-select" aria-label="Default select example">
+              <option selected>Choisissez votre ville</option>
+              <option value="1">Paris</option>
+              <option value="2">Marseille</option>
+              <option value="3">Clermont-Ferrand</option>
+              <option value="4">Rodez</option>
+            </select>
+          </div>
+
+
+          <div class="row">
+            <button  routerLink="/addlieu" type="submit"><img src="/assets/img/plus.png" class="emoji" /></button>
+            <button  routerLink="/editlieu" type="submit"><img src="/assets/img/edit.png" class="emoji" /></button>
+            <button type="submit"><img src="/assets/img/delete.png" class="emoji" /></button>
+          </div>
+        </form>
+
+      </div>
+    </div>
+  </div>
+</body>

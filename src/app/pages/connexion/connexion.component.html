@@ -1,0 +1,36 @@
+
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <h1 class="my-4">Connexion</h1>
+    </div>
+  </div>
+  <div class="row d-flex justify-content-center">
+    @if(errorMsg){
+    <div class="w-full rounded-mb text-red-500 text-sm/6 font-medium mb-4">
+      {{ errorMsg }}
+    </div>}
+    <div class="col-7 bg-blue">
+      <img class="my-4" src="assets/img/user-picture.png" />
+      <form class="space-y-6"
+             [formGroup]="form"
+             (ngSubmit)="onSubmitLogin()">
+        <div class="mb-3">
+          <label for="email" class="form-label">Adresse e-mail</label>
+          <input type="email" class="form-control" id="email" aria-describedby="emailHelp" formControlName="email">
+          <div id="emailHelp" class="form-text">Elle restera entre nous</div>
+        </div>
+        <div class="mb-3">
+          <label for="password" class="form-label">Mot de passe</label>
+          <input type="password" class="form-control" id="password" formControlName="password">
+        </div>
+        <div class="mb-3 form-check">
+          <input type="checkbox" class="form-check-input" id="remember" formControlName="remember">
+          <label class="form-check-label" for="remember">Se souvenir de moi</label>
+        </div>
+        <button type="submit" [disabled]="form.invalid || requestOnGoing">Connexion <span class="emoji ms-2">⚡</span></button>
+      </form>
+
+    </div>
+  </div>
+  </div>

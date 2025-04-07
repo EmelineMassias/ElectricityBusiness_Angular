@@ -1,0 +1,141 @@
+$color-blue: #004AAD;
+
+@keyframes pulseGlowGreen {
+  0% {
+    text-shadow: 0 0 5px #C7FF33, 0 0 10px #C7FF33;
+  }
+
+  50% {
+    text-shadow: 0 0 15px #7FFF00, 0 0 30px #7FFF00;
+  }
+
+  100% {
+    text-shadow: 0 0 5px #C7FF33, 0 0 10px #C7FF33;
+  }
+  }
+
+@keyframes pulseGlow {
+  0% {
+    text-shadow: 0 0 2px #00c3ff, 0 0 5px #00c3ff;
+  }
+
+  50% {
+    text-shadow: 0 0 20px #00c3ff, 0 0 30px #00c3ff;
+  }
+
+  100% {
+    text-shadow: 0 0 2px #00c3ff, 0 0 5px #00c3ff;
+  }
+}
+
+  h1 {
+    font-family: "Konkhmer Sleokchher", serif;
+    color: $color-blue;
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
+  }
+
+  .bg-blue {
+    background: linear-gradient(135deg, #004aad, #00c3ff);
+    border-radius: 10px;
+    color: white;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
+    padding: 30px;
+
+    img {
+      height: 50px;
+    }
+
+    h2 {
+      font-family: "Konkhmer Sleokchher", serif;
+    }
+  }
+
+
+.slogan {
+  color: $color-blue;
+  font-family: "Konkhmer Sleokchher", serif;
+  text-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
+  transform: rotate(90deg);
+  font-size: 20px;
+  margin-top: 140px;
+  font-weight: bold;
+  text-transform: uppercase;
+  white-space: nowrap;
+  text-align: center;
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+  animation: pulseGlow 1.5s infinite alternate ease-in-out;
+
+
+  &:hover {
+    color: #32CD32;
+    animation-name: pulseGlowGreen;
+  }
+}
+
+  .car-pic1 {
+    width: 500px;
+    border-radius: 10px 0 0 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
+  }
+
+  .car-pic2 {
+    width: 500px;
+    border-radius: 0 10px 10px 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
+  }
+
+  button {
+    margin-bottom: 20px;
+    border-radius: 10px;
+    background-color: #fff;
+    color: #004AAD;
+    padding: 10px 20px 10px 20px;
+    text-align: center;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    font-family: "Inter", serif;
+    font-size: large;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4) !important;
+    border: none;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease-in-out;
+
+    .emoji {
+      transition: transform 0.3s ease, opacity 0.3s ease;
+    }
+
+    img {
+      margin-left: 10px;
+      width: 30px;
+      transition: transform 0.3s ease, opacity 0.3s ease;
+    }
+
+    &:hover {
+      color: #00c3ff;
+      transform: scale(1.05);
+      box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.8);
+
+      .emoji {
+        transform: translateX(50px);
+        opacity: 0;
+      }
+
+      img {
+        transform: translateX(50px);
+        opacity: 0;
+        color: #00c3ff;
+      }
+    }
+  }
+
+  #map {
+    height: 400px;
+    width: 100%;
+  }
+  
+
+
+

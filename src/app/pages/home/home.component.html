@@ -1,0 +1,56 @@
+<div>
+
+  <div class="welcome d-flex my-5">
+    <div class="col-8">
+      <h1 class="mt-4 px-5">Bienvenue sur Electricity Business</h1>
+      <div class="bg-blue pb-3 mx-5">
+        <h2 class="title">Trouvez facilement votre borne de recharge</h2>
+        <p class="pb-5">
+          Electric Business est une application innovante conçue pour répondre aux besoins des conducteurs de véhicules électriques.
+          <br />Trouvez facilement des bornes de recharge autour de vous, où que vous soyez, et contribuez à enrichir notre base de données
+          en ajoutant vos propres découvertes !
+        </p>
+        <h3 class="mb-3">Rejoignez 10 000 utilisateurs et trouvez votre borne en 1 clic !</h3>
+        <button class="px-5 py-3"  routerLink="/findborne">Trouver une borne maintenant<span class="emoji ms-2">🚀</span> </button>
+      </div>
+    </div>
+    <div class=" col-1 pt-1">
+      <p class="slogan ps-5">Ready, charge, go !</p>
+    </div>
+    <div class="col-3">
+      <img class="car-pic1" src="assets/img/charging-car1.webp" />
+    </div>
+  </div>
+
+  <div class="d-flex my-5">
+    <div class="col-4">
+      <img class="car-pic2" src="assets/img/charging-car3.jpeg" />
+    </div>
+
+    <div class="col-7 bg-blue px-5 my-5">
+      <h2 class="title mt-3">Pourquoi choisir Electricity Business ?</h2>
+      <p class="pb-5 pe-4">
+        Une interface intuitive et agréable.
+        <br />Une communauté engagée pour enrichir constamment les informations disponibles.
+        <br />Une solution adaptée à tous : particuliers, professionnels ou flottes électriques.
+      </p>
+      <button type="button" routerLink="/connexion" class="px-5 py-3">Rejoignez notre communauté <span class="emoji ms-2">⚡</span></button>
+    </div>
+  </div>
+
+  <div class="d-flex justify-content-center mb-5">
+    <div class="col-3 bg-blue px-5 mx-5 d-flex flex-column">
+      <img class="mb-3" src="assets/img/borne.svg" />
+      <button class="mx-5" routerLink="/addborne">Ajouter une borne <img src="assets/img/plus.svg" /></button>
+      <button class="mx-5" routerLink="/findborne">Trouver une borne <img src="assets/img/search.svg" /></button>
+    </div>
+    <div class="col-1"></div>
+    <div class="col-3 bg-blue px-5 mx-5 d-flex flex-column">
+      <img class="mb-3" src="assets/img/place.svg" />
+      <button class="mx-5" routerLink="/addlieu">Ajouter un lieu <img src="assets/img/plus.svg" /></button>
+      <button class="mx-5" routerLink="/findlieu">Chercher un lieu <img src="assets/img/search.svg" /></button>
+    </div>
+  </div>
+
+  <div id="map"></div>
+</div>

@@ -1,0 +1,71 @@
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <h1 class="mt-5">Trouver une borne autour de soi 🔋</h1>
+      </div>
+    </div>
+    <div class="row d-flex justify-content-center">
+      <div class="col-7 bg-blue my-5">
+
+        <form>
+          <div class="mb-3">
+            <label for="ville" class="form-label">Ville</label>
+            <select class="form-select" aria-label="Default select example">
+              <option selected>Choisissez votre ville</option>
+              <option value="1">Paris</option>
+              <option value="2">Marseille</option>
+              <option value="3">Clermont-Ferrand</option>
+              <option value="4">Rodez</option>
+            </select>
+          </div>
+
+          <div class="row d-flex align-items-center position-relative">
+            <div class="col-6">
+              <label for="startDate" class="form-label">Date de début</label>
+              <div class="input-group">
+                <input #dpFromDate
+                       class="form-control"
+                       placeholder="yyyy-mm-dd"
+                       name="dpFromDate"
+                       [value]="formatter.format(fromDate)"
+                       (input)="fromDate = validateInput(fromDate, dpFromDate.value)"
+                       ngbDatepicker
+                       #datepickerFrom="ngbDatepicker" />
+                <button class="calendar btn btn-outline-secondary" (click)="datepickerFrom.toggle()" type="button">📅</button>
+              </div>
+            </div>
+            <div class="col-6">
+              <label for="endDate" class="form-label">Date de fin</label>
+              <div class="input-group">
+                <input #dpToDate
+                       class="form-control"
+                       placeholder="yyyy-mm-dd"
+                       name="dpToDate"
+                       [value]="formatter.format(toDate)"
+                       (input)="toDate = validateInput(toDate, dpToDate.value)"
+                       ngbDatepicker
+                       #datepickerTo="ngbDatepicker" />
+                <button class="calendar btn btn-outline-secondary" (click)="datepickerTo.toggle()" type="button">📅</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="row d-flex">
+            <div class="col-6">
+              <label for="startTime" class="form-label">Heure de début</label>
+              <ngb-timepicker [(ngModel)]="time" />
+            </div>
+            <div class="col-6">
+              <label for="endTime" class="form-label">Heure de fin</label>
+              <ngb-timepicker [(ngModel)]="time" />
+            </div>
+          </div>
+
+          <button class="m-auto mt-5" type="submit">Rechercher<span class="emoji ms-2">⚡</span> </button>
+        </form>
+
+      </div>
+    </div>
+  </div>
+</body>

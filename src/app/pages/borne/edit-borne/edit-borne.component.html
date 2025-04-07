@@ -1,0 +1,71 @@
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <h1 class="mt-5">Ajouter une borne 🔋 </h1>
+      </div>
+    </div>
+    <div class="row d-flex justify-content-center">
+      <div class="col-7 bg-blue my-5">
+
+        <form>
+          <div class="mb-3">
+            <label for="lieu" class="form-label">Lieu :</label>
+            <input type="text" class="form-control" id="lieuForm">
+          </div>
+
+          <div class="mb-3">
+            <label for="borneName" class="form-label">Nom :</label>
+            <input type="text" class="form-control" id="borneName">
+          </div>
+
+          <div class="mb-3">
+            <label for="ville" class="form-label">Ville</label>
+            <select class="form-select" aria-label="Default select example">
+              <option selected>Choisissez votre ville</option>
+              <option value="1">Paris</option>
+              <option value="2">Marseille</option>
+              <option value="3">Clermont-Ferrand</option>
+              <option value="4">Rodez</option>
+            </select>
+          </div>
+
+
+          <div class="mb-3">
+            <label for="puissance" class="form-label">Puissance :</label>
+            <input type="number" class="form-control" id="puissance">
+          </div>
+
+          <div class="row d-flex">
+            <div class="col-6 mb-3">
+              <label for="longitude" class="form-label">Longitude :</label>
+              <input type="number" class="form-control" id="longitude">
+            </div>
+
+            <div class="col-6 mb-3">
+              <label for="latitude" class="form-label">Latitude :</label>
+              <input type="number" class="form-control" id="latitude">
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <label for="instruction" class="form-label">Instructions :</label>
+            <input type="text" class="form-control" id="instruction">
+          </div>
+
+          <div class="mb-3 form-check">
+            <label class="form-check-label" for="surPied">Sur pied :</label>
+            <input type="checkbox" class="form-check-input" id="checkBox">
+          </div>
+
+
+
+
+          <button class="m-auto mt-5" routerLink="/editprofile" type="submit">Enregistrer<span class="emoji ms-2">⚡</span> </button>
+        </form>
+
+      </div>
+    </div>
+  </div>
+</body>
+

@@ -1,0 +1,16 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\public",
+    "\\public\\assets",
+    "\\src",
+    "\\src\\app",
+    "\\src\\app\\components",
+    "\\src\\app\\components\\borne",
+    "\\src\\app\\components\\borne\\detail-borne",
+    "\\src\\app\\components\\borne\\find-borne",
+    "\\src\\app\\components\\nav-bar"
+  ],
+  "SelectedNode": "\\src\\app\\components\\borne\\detail-borne\\detail-borne.component.ts",
+  "PreviewInSolutionExplorer": false
+}

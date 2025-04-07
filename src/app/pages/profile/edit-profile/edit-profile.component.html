@@ -1,0 +1,47 @@
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <h1 class="mt-5">Modifier votre profil</h1>
+    </div>
+  </div>
+  <div class="row d-flex justify-content-center">
+    <div class="col-7 bg-blue my-5">
+      <img class="profilePic" src="assets/img/profile-picture.jpeg" />
+
+      <form>
+        <div class="mb-3">
+          <label for="email" class="form-label">Adresse e-mail</label>
+          <input type="email" class="form-control" id="emailForm" aria-describedby="emailHelp">
+          <div id="emailHelp" class="form-text">Elle restera entre nous</div>
+        </div>
+        <div class="mb-3">
+          <label for="password" class="form-label">Mot de passe</label>
+          <input type="password" class="form-control" id="passwordForm">
+        </div>
+        <div class="d-flex mb-3">
+          <div class="me-5">
+            <label for="lastName" class="form-label">Nom</label>
+            <input type="text" class="form-control" id="lastNameForm">
+          </div>
+          <div>
+            <label for="firstName" class="form-label">Prénom</label>
+            <input type="text" class="form-control" id="firstNameForm">
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="adresse" class="form-label">Adresse</label>
+          <input type="text" class="form-control" id="emailForm">
+
+        </div>
+
+        <div class="mb-3 form-check">
+          <input type="checkbox" class="form-check-input" id="checkBox">
+          <label class="form-check-label" for="checkBox">Se souvenir de moi</label>
+        </div>
+        <button routerLink="/editprofile" type="submit">Enregistrer<span class="emoji ms-2">⚡</span> </button>
+      </form>
+      
+    </div>
+  </div>
+</div>
