@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {environment} from '../../../environments/environment.development';
-import {lastValueFrom, map, tap} from 'rxjs';
+import {from, lastValueFrom, map, switchMap, tap} from 'rxjs';
 import {LocalStorageService} from '../local-storage/local-storage.service';
 import {UtilisateurService} from '../utilisateur/utilisateur.service';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
@@ -21,54 +21,58 @@ export class AuthService {
   constructor (
     private http: HttpClient,
     private localStorageService: LocalStorageService,
-    private userService: UtilisateurService
+    public userService: UtilisateurService
   ) {
 
     this.url = environment.API_URL + environment.API_RESOURCES.USERS
   }
 
-  async checkLocalStorageToken (): Promise<void> {
-    const tokenLocalStorage = this.localStorageService.getItem(environment.LOCAL_STORAGE.ACCESS_TOKEN)
+  async checkLocalStorageToken(): Promise<void> {
+    const tokenLocalStorage = this.localStorageService.getItem(environment.LOCAL_STORAGE.ACCESS_TOKEN);
     if (tokenLocalStorage) {
-      this.token = tokenLocalStorage
-      await this.getProfile()
+      this.token = tokenLocalStorage;
+      try {
+        await this.getProfile();
+      } catch (error) {
+        this.logout(); // Se déconnecter si le profil ne peut pas être récupéré
+      }
+    } else {
+      console.log("Aucun token trouvé dans localStorage.");
     }
   }
 
-  async login (email: string, password: string, remember: boolean): Promise<void> {
+  async login(email: string, password: string, remember: boolean): Promise<void> {
+    console.log('login', email, password);
     const obs = this.http
       .post<LoginHttp>(`${this.url}/login`, { email, password })
       .pipe(
         tap(res => {
+          console.log(res);
           if (remember) {
-            this.localStorageService.setItem(environment.LOCAL_STORAGE.ACCESS_TOKEN, res.token)
+            this.localStorageService.setItem(environment.LOCAL_STORAGE.ACCESS_TOKEN, res.token);
           }
-          this.token = res.token
+          this.token = res.token;
+          this.userService.currentUser = { email } as Utilisateur;
         }),
-        map(async () => {
-          await this.getProfile()
-          return undefined
-        })
-      )
-    return lastValueFrom(obs)
+        switchMap(() => from(this.getProfile()))
+      );
+    await lastValueFrom(obs);
   }
 
-  async getProfile (): Promise<void> {
-    if (!this.token) throw new Error('Aucun jeton n\'a été trouvé.')
-
-    const headers = new HttpHeaders({
-      Authorization: `Bearer ${this.token}`
-    })
-
+  async getProfile(): Promise<Utilisateur> {
     const obs = this.http
-      .get<UtilisateurHttp>(`${this.url}/profile`, { headers })
+      .get<UtilisateurHttp>(`${this.url}/current-user`)
       .pipe(
+        tap(userHttp => console.log("Réponse API user:", userHttp)),
         map(userHttp => Utilisateur.fromHttp(userHttp)),
-        tap(user => this.userService.currentUser = user),
-        map(() => undefined)
-      )
-    return lastValueFrom(obs)
+            tap(user => {
+              this.userService.currentUser = user;
+            })
+        );
+
+          return await lastValueFrom(obs);
   }
+
 
   logout (): void {
     this.localStorageService.removeItem(environment.LOCAL_STORAGE.ACCESS_TOKEN)

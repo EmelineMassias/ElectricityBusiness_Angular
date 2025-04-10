@@ -5,7 +5,6 @@ export const environment = {
     USERS: '/utilisateurs',
   },
   LOCAL_STORAGE: {
-    ACCESS_TOKEN: 'access_token',
-    REFRESH_TOKEN: 'refresh_token'
+    ACCESS_TOKEN: 'access_token'
   }
 };
