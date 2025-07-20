@@ -15,6 +15,7 @@ export interface UtilisateurHttp {
   nomRue: string
   codePostal: string
   ville: string
+  photoProfil: string
   bornes : BorneHttp[]
   reservations: ReservationHttp[]
 }
@@ -33,6 +34,7 @@ export interface Utilisateur {
   nomRue: string
   codePostal: string
   ville: string
+  photoProfil: string
   bornes : Borne[]
   reservations: Reservation[]
 }
@@ -53,6 +55,7 @@ export namespace Utilisateur {
       nomRue:http.nomRue,
       codePostal:http.codePostal,
       ville:http.ville,
+      photoProfil: http.photoProfil,
       bornes:http.bornes ? http.bornes.map(borne=> Borne.fromHttp(borne)):[],
       reservations:http.reservations ? http.reservations.map(reservation=> Reservation.fromHttp(reservation)):[]
     }

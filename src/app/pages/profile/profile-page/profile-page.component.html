@@ -6,11 +6,13 @@
   </div>
   <div class="row d-flex justify-content-center">
     <div class="col-7 bg-blue my-5">
-      <img class="profilePic" src="assets/img/profile-picture.jpeg"/>
-    <p><b>Nom :</b> {{ user?.nom }}</p>
-    <p><b>Prénom :</b> {{ user?.prenom }}</p>
-    <p><b>Adresse :</b> {{ user?.nomRue }} <br>{{user?.codePostal}}  {{user?.ville}}</p>
-    <p><b>Email :</b> {{ user?.email }}</p>
+      <img class="profilePic" src="{{imageUrl}}{{user?.photoProfil}}"/>
+      <p><b>Nom d'utilisateur</b> {{user?.username}}</p>
+      <p><b>Nom :</b> {{ user?.prenom }} {{ user?.nom }}</p>
+      <p><b>Adresse :</b> {{ user?.numeroRue }}, {{ user?.nomRue }} <br> <span class="ms-5">{{user?.codePostal}}  {{user?.ville}}</span></p>
+      <p><b>Email :</b> {{ user?.email }}</p>
+      <p><b>Date de Naissance :</b> {{user?.dateDeNaissance | date:'dd/MM/yyyy'}}</p>
+      <p><b>Téléphone :</b> {{user?.telephone}}</p>
       <button routerLink="/editprofile" type="button">Modifier le profil<span class="emoji ms-2">⚡</span> </button>
     </div>
   </div>
@@ -18,11 +20,10 @@
   <div class="row d-flex justify-content-center">
     <div class="col-7 mb-5 bg-blue">
       <h3 class="mb-5">Vos bornes</h3>
-      <p>Borne Paris 2ème<a  routerLink="/editlieu" class="px-3"><img src="assets/img/edit.svg" /></a><a><img src="assets/img/delete.svg" /></a></p>
+      @for(borne of user?.bornes; track borne.id){
+      <p>{{ borne.nomBorne }}<a  routerLink="/editborne" class="px-3"><img src="assets/img/edit.svg" style="cursor: pointer;"  /></a><a><img src="assets/img/delete.svg" style="cursor: pointer;" /></a></p>
       <span class="divider"></span>
-      <p>Borne Paris 16ème<a routerLink="/editlieu" class="px-3"><img src="assets/img/edit.svg" /></a><a><img src="assets/img/delete.svg" /></a></p>
-      <span class="divider"></span>
-      <p>Borne Paris 10ème<a routerLink="/editlieu" class="px-3"><img src="assets/img/edit.svg" /></a><a><img src="assets/img/delete.svg" /></a></p>
+      }
     </div>
   </div>
 </div>

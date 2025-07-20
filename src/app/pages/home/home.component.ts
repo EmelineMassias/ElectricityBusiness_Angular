@@ -2,7 +2,13 @@ import { Component, AfterViewInit } from '@angular/core';
 import * as L from 'leaflet';
 import { RouterLink } from '@angular/router';
 
+delete (L.Icon.Default.prototype as any)._getIconUrl;
 
+L.Icon.Default.mergeOptions({
+  iconRetinaUrl: 'assets/leaflet/marker-icon-2x.png',
+  iconUrl: 'assets/leaflet/marker-icon.png',
+  shadowUrl: 'assets/leaflet/marker-shadow.png',
+});
 
 @Component({
   selector: 'app-home',

@@ -8,5 +8,7 @@ export const authGuard: CanActivateFn = (route, state) => {
 
   if(authService.token) return true
 
-  return router.navigateByUrl('/connexion')
+  //return router.navigateByUrl('/connexion')
+  console.warn("AuthGuard blocked access, normally redirecting to /connexion");
+  return false;
 };

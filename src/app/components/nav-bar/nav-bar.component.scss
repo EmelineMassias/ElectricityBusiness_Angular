@@ -5,6 +5,13 @@
   display: flex;
   justify-content: space-between;
 
+  .profile-img {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+
   .navbar-brand {
     img {
       width: 200px;

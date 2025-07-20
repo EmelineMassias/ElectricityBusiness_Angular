@@ -1,70 +1,78 @@
 <body>
-  <div class="container">
-    <div class="row">
-      <div class="col">
-        <h1 class="mt-5">Ajouter une borne 🔋 </h1>
-      </div>
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <h1 class="mt-5">Ajouter une borne 🔋 </h1>
     </div>
-    <div class="row d-flex justify-content-center">
-      <div class="col-7 bg-blue my-5">
+  </div>
+  <div class="row d-flex justify-content-center">
+    <div class="col-7 bg-blue my-5">
 
-        <form>
-          <div class="mb-3">
-            <label for="lieu" class="form-label">Lieu :</label>
-            <input type="text" class="form-control" id="lieuForm">
+      <form (ngSubmit)="onSubmit()">
+
+        <div *ngIf="successMessage" class="alert alert-success mt-3">
+          {{ successMessage }}
+        </div>
+        <div *ngIf="errorMessage" class="alert alert-danger mt-3">
+          {{ errorMessage }}
+        </div>
+
+        <div class="mb-3">
+          <label for="lieuId" class="form-label">Lieu (ID) :</label>
+          <input type="number" class="form-control" id="lieuId" name="lieuId" [(ngModel)]="newBorne.lieuId" required>
+        </div>
+
+        <div class="mb-3">
+          <label for="borneName" class="form-label">Nom de la borne :</label>
+          <input type="text" class="form-control" id="borneName" name="nomBorne" [(ngModel)]="newBorne.nomBorne" required>
+        </div>
+
+        <div class="mb-3">
+          <label for="puissance" class="form-label">Puissance :</label>
+          <input type="text" class="form-control" id="puissance" name="puissance" [(ngModel)]="newBorne.puissance" required>
+        </div>
+
+        <div class="row d-flex">
+          <div class="col-6 mb-3">
+            <label for="longitude" class="form-label">Longitude :</label>
+            <input type="number" class="form-control" id="longitude" name="longitude" [(ngModel)]="newBorne.longitude" step="any">
           </div>
 
-          <div class="mb-3">
-            <label for="borneName" class="form-label">Nom :</label>
-            <input type="text" class="form-control" id="borneName">
+          <div class="col-6 mb-3">
+            <label for="latitude" class="form-label">Latitude :</label>
+            <input type="number" class="form-control" id="latitude" name="latitude" [(ngModel)]="newBorne.latitude" step="any">
           </div>
+        </div>
 
-          <div class="mb-3">
-            <label for="ville" class="form-label">Ville</label>
-            <select class="form-select" aria-label="Default select example">
-              <option selected>Choisissez votre ville</option>
-              <option value="1">Paris</option>
-              <option value="2">Marseille</option>
-              <option value="3">Clermont-Ferrand</option>
-              <option value="4">Rodez</option>
-            </select>
-          </div>
+        <div class="mb-3">
+          <label for="instruction" class="form-label">Instructions :</label>
+          <input type="text" class="form-control" id="instruction" name="instruction" [(ngModel)]="newBorne.instruction">
+        </div>
 
+        <div class="mb-3 form-check">
+          <input type="checkbox" class="form-check-input" id="surPied" name="surPied" [(ngModel)]="newBorne.surPied">
+          <label class="form-check-label" for="surPied">Sur pied :</label>
+        </div>
 
-          <div class="mb-3">
-            <label for="puissance" class="form-label">Puissance :</label>
-            <input type="number" class="form-control" id="puissance">
-          </div>
+        <div class="mb-3 form-check">
+          <input type="checkbox" class="form-check-input" id="estDisponible" name="estDisponible" [(ngModel)]="newBorne.estDisponible">
+          <label class="form-check-label" for="estDisponible">Est disponible :</label>
+        </div>
 
-          <div class="row d-flex">
-            <div class="col-6 mb-3">
-              <label for="longitude" class="form-label">Longitude :</label>
-              <input type="number" class="form-control" id="longitude">
-            </div>
+        <div class="mb-3">
+          <label for="prix" class="form-label">Prix :</label>
+          <input type="number" class="form-control" id="prix" name="prix" [(ngModel)]="newBorne.prix" step="0.01" required>
+        </div>
 
-            <div class="col-6 mb-3">
-              <label for="latitude" class="form-label">Latitude :</label>
-              <input type="number" class="form-control" id="latitude">
-            </div>
-          </div>
+        <div class="mb-3">
+          <label for="photo" class="form-label">Nom du fichier photo :</label>
+          <input type="text" class="form-control" id="photo" name="photo" [(ngModel)]="newBorne.photo">
+        </div>
 
-          <div class="mb-3">
-            <label for="instruction" class="form-label">Instructions :</label>
-            <input type="text" class="form-control" id="instruction">
-          </div>
-
-          <div class="mb-3 form-check">
-            <label class="form-check-label" for="surPied">Sur pied :</label>
-            <input type="checkbox" class="form-check-input" id="checkBox">
-          </div>
-
-
-
-
-      <button class="m-auto mt-5" type="submit">Enregistrer<span class="emoji ms-2">⚡</span> </button>
+        <button class="m-auto mt-5" type="submit">Enregistrer<span class="emoji ms-2">⚡</span> </button>
       </form>
 
     </div>
-    </div>
   </div>
+</div>
 </body>

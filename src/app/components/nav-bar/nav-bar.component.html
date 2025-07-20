@@ -21,14 +21,30 @@
    </ul>
   -->
     <ul class="navbar-nav ms-auto">
-      <li routerLink="registration" class="nav-item d-flex align-items-center">
-        <img class="nav-icon" src="assets/img/add-user.svg" />
-        <span class="nav-text">Inscription</span>
-      </li>
-      <li routerLink="connexion" class="nav-item d-flex align-items-center">
-        <img class="nav-icon" src="assets/img/user-connect.svg" />
-        <span class="nav-text">Connexion</span>
-      </li>
+      @if(authService.isLoggedIn() && authService.userService.currentUser) {
+     <li routerLink="profilepage" class="nav-item d-flex align-items-center" style="cursor: pointer">
+       <img src="{{imageUrl}}{{authService.userService.currentUser?.photoProfil}}"
+            alt="photo de profil"
+            class="profile-img"/>
+       <span class="nav-text">
+         Bonjour {{ authService.userService.currentUser?.prenom }} {{ authService.userService.currentUser?.nom }}
+       </span>
+     </li>
+
+        <li (click)="logout()" class="nav-item d-flex align-items-center" style="cursor: pointer">
+          <img class="nav-icon" src="assets/img/logout.png"/>
+          <span class="nav-text">Déconnexion</span>
+        </li>
+      } @else {
+        <li routerLink="registration" class="nav-item d-flex align-items-center">
+          <img class="nav-icon" src="assets/img/add-user.svg" />
+          <span class="nav-text">Inscription</span>
+        </li>
+        <li routerLink="connexion" class="nav-item d-flex align-items-center">
+          <img class="nav-icon" src="assets/img/user-connect.svg" />
+          <span class="nav-text">Connexion</span>
+        </li>
+      }
     </ul>
   </div>
 </nav>

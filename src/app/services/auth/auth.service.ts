@@ -73,6 +73,9 @@ export class AuthService {
           return await lastValueFrom(obs);
   }
 
+  isLoggedIn(): boolean {
+    return !!this.token;
+  }
 
   logout (): void {
     this.localStorageService.removeItem(environment.LOCAL_STORAGE.ACCESS_TOKEN)

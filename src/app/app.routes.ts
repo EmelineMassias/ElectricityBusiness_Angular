@@ -9,10 +9,12 @@ import { AddBorneComponent } from './pages/borne/add-borne/add-borne.component';
 import { DetailBorneComponent } from './pages/borne/detail-borne/detail-borne.component';
 import { EditBorneComponent } from './pages/borne/edit-borne/edit-borne.component';
 import { FindBorneComponent } from './pages/borne/find-borne/find-borne.component';
+import { AllBorneComponent } from './pages/borne/all-borne/all-borne.component';
 import { AddLieuComponent } from './pages/lieu/add-lieu/add-lieu.component';
 import { DetailLieuComponent } from './pages/lieu/detail-lieu/detail-lieu.component';
 import { EditLieuComponent } from './pages/lieu/edit-lieu/edit-lieu.component';
 import { FindLieuComponent } from './pages/lieu/find-lieu/find-lieu.component';
+
 
 
 export const routes: Routes = [
@@ -29,6 +31,7 @@ export const routes: Routes = [
   { path: 'addlieu', component: AddLieuComponent },
   { path: 'detaillieu', component: DetailLieuComponent },
   { path: 'editlieu', component: EditLieuComponent },
-  { path: 'findlieu', component: FindLieuComponent }
+  { path: 'findlieu', component: FindLieuComponent },
+  { path: 'allborne', component: AllBorneComponent }
 ];
 
